@@ -1,0 +1,26 @@
+{
+	"editor.codeActionsOnSave": {
+		"source.addMissingImports": "always",
+		"source.fixAll": "always",
+		"source.organizeImports": "always"
+	},
+	"editor.formatOnSave": true,
+	"editor.formatOnType": true,
+	"editor.insertSpaces": false,
+	"editor.rulers": [ 80 ],
+	"editor.tabSize": 4,
+	"files.eol": "\n",
+	"files.insertFinalNewline": true,
+	"files.trimFinalNewlines": true,
+	"files.trimTrailingWhitespace": true,
+	"json.format.keepLines": true,
+	"json.validate.enable": false,
+	"typescript.format.semicolons": "insert",
+	"typescript.preferences.importModuleSpecifier": "non-relative",
+	"typescript.preferences.importModuleSpecifierEnding": "js",
+	"typescript.preferences.quoteStyle": "double",
+	"typescript.updateImportsOnFileMove.enabled": "always",
+	"[typescript]": {
+		"editor.defaultFormatter": "vscode.typescript-language-features"
+	}
+}

@@ -1,0 +1,40 @@
+{
+	"name": "lan-scan",
+	"version": "1.0.3",
+	"description": "A Node.js library for scanning local networks to find IP addresses that have a specific port open.",
+	"main": "lib/main.js",
+	"types": "lib/main.d.ts",
+	"type": "module",
+	"scripts": {
+		"build": "tsc",
+		"clean": "rm -rf ./dist",
+		"lint": "eslint . --ext .ts --fix",
+		"prepare": "npm run build",
+		"test": "node test.js"
+	},
+	"keywords": [
+		"ip",
+		"lan",
+		"scan"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/shangzhenyang/lan-scan.git"
+	},
+	"author": "Shangzhen Yang",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/shangzhenyang/lan-scan/issues"
+	},
+	"homepage": "https://github.com/shangzhenyang/lan-scan#readme",
+	"files": [
+		"lib"
+	],
+	"devDependencies": {
+		"@types/node": "^20.12.8",
+		"@typescript-eslint/eslint-plugin": "^7.8.0",
+		"@typescript-eslint/parser": "^7.8.0",
+		"eslint": "^8.57.0",
+		"eslint-config-rth": "^1.3.0"
+	}
+}
