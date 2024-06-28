@@ -58,10 +58,12 @@ class LanScan {
 	 */
 	public static getLocalIp(): string | null {
 		const interfaces = os.networkInterfaces();
+		let result = null;
 		for (const key in interfaces) {
 			const iface = interfaces[key];
 			if (
 				!iface ||
+				key.includes("CloudflareWARP") ||
 				key.includes("vEthernet") ||
 				key.includes("VMware")
 			) {
@@ -69,11 +71,14 @@ class LanScan {
 			}
 			for (const info of iface) {
 				if (!info.internal && info.family === "IPv4") {
-					return info.address;
+					result = info.address;
+					if (result.startsWith("192.168.")) {
+						return result;
+					}
 				}
 			}
 		}
-		return null;
+		return result;
 	}
 
 	#ipRange(baseIp: string): {

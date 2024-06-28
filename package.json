@@ -1,6 +1,6 @@
 {
 	"name": "lan-scan",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "A Node.js library for scanning local networks to find IP addresses that have a specific port open.",
 	"main": "lib/main.js",
 	"types": "lib/main.d.ts",
@@ -8,9 +8,10 @@
 	"scripts": {
 		"build": "tsc",
 		"clean": "rm -rf ./dist",
-		"lint": "eslint . --ext .ts --fix",
+		"format": "prettier --write .",
+		"lint": "eslint . --ext .ts,.tsx && prettier --check .",
 		"prepare": "npm run build",
-		"test": "node test.js"
+		"test": "npm run build && node test.js"
 	},
 	"keywords": [
 		"ip",
@@ -30,11 +31,15 @@
 	"files": [
 		"lib"
 	],
+	"prettier": "prettier-config-rth",
 	"devDependencies": {
-		"@types/node": "^20.12.8",
-		"@typescript-eslint/eslint-plugin": "^7.8.0",
-		"@typescript-eslint/parser": "^7.8.0",
+		"@types/node": "^20.14.9",
+		"@typescript-eslint/eslint-plugin": "^7.14.1",
+		"@typescript-eslint/parser": "^7.14.1",
 		"eslint": "^8.57.0",
-		"eslint-config-rth": "^1.3.0"
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-config-rth": "^1.4.1",
+		"prettier": "^3.3.2",
+		"prettier-config-rth": "^1.0.0"
 	}
 }
