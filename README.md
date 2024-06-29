@@ -24,19 +24,22 @@ console.log(openIps); // ["192.168.1.1"]
 ## API
 
 `constructor(port: number | string, timeout?: number)`
-- `port`: The port to scan for. It must be a number between 1 and 65535. If a
-  string is provided, it will be converted to a number.
-- `timeout`: Optional. Timeout in milliseconds for each port connection attempt.
-  Default is 2000 ms.
+
+-   `port`: The port to scan for. It must be a number between 1 and 65535. If a
+    string is provided, it will be converted to a number.
+-   `timeout`: Optional. Timeout in milliseconds for each port connection attempt.
+    Default is 2000 ms.
 
 `async scanNetwork(): Promise<string[]>`
-- Performs a scan on the network. Returns a promise that resolves to an array of
-  IP addresses where the specified port is open.
+
+-   Performs a scan on the network. Returns a promise that resolves to an array of
+    IP addresses where the specified port is open.
 
 `static getLocalIp(): string | null`
-- Gets the local IP address of the machine. It will skip virtual interfaces like
-  `vEthernet` and `VMware`.
-- Returns the local IP address of the machine or `null` if not found.
+
+-   Gets the local IP address of the machine. It will skip virtual interfaces like
+    `vEthernet` and `VMware`.
+-   Returns the local IP address of the machine or `null` if not found.
 
 ## License
 

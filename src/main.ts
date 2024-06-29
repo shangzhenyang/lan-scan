@@ -28,25 +28,29 @@ class LanScan {
 		return new Promise((resolve) => {
 			const socket = new net.Socket();
 			socket.setTimeout(this.timeout);
-			socket.on("connect", () => {
-				socket.destroy();
-				resolve({
-					ip: ip,
-					open: true,
-				});
-			}).on("error", () => {
-				socket.destroy();
-				resolve({
-					ip: ip,
-					open: false,
-				});
-			}).on("timeout", () => {
-				socket.destroy();
-				resolve({
-					ip: ip,
-					open: false,
-				});
-			}).connect(this.port, ip);
+			socket
+				.on("connect", () => {
+					socket.destroy();
+					resolve({
+						ip: ip,
+						open: true,
+					});
+				})
+				.on("error", () => {
+					socket.destroy();
+					resolve({
+						ip: ip,
+						open: false,
+					});
+				})
+				.on("timeout", () => {
+					socket.destroy();
+					resolve({
+						ip: ip,
+						open: false,
+					});
+				})
+				.connect(this.port, ip);
 		});
 	}
 
@@ -127,14 +131,16 @@ class LanScan {
 			}
 		}
 		const results = await Promise.allSettled(promises);
-		const openIps = results.filter((result) => {
-			return result.status === "fulfilled" && result.value.open;
-		}).map((result) => {
-			if (result.status !== "fulfilled") {
-				return "";
-			}
-			return result.value.ip;
-		});
+		const openIps = results
+			.filter((result) => {
+				return result.status === "fulfilled" && result.value.open;
+			})
+			.map((result) => {
+				if (result.status !== "fulfilled") {
+					return "";
+				}
+				return result.value.ip;
+			});
 		return openIps;
 	}
 }
